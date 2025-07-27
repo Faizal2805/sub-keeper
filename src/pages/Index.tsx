@@ -1,14 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { LandingPage } from "@/components/LandingPage";
+import { AuthForm } from "@/components/AuthForm";
+import { Dashboard } from "@/components/Dashboard";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  const [showAuth, setShowAuth] = useState(false);
+
+  const handleLogin = (userData: { name: string; email: string }) => {
+    setUser(userData);
+  };
+
+  const handleGetStarted = () => {
+    setShowAuth(true);
+  };
+
+  if (!showAuth && !user) {
+    return <LandingPage onGetStarted={handleGetStarted} />;
+  }
+
+  if (!user) {
+    return <AuthForm onLogin={handleLogin} />;
+  }
+
+  return <Dashboard />;
 };
 
 export default Index;

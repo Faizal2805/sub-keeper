@@ -52,6 +52,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				coral: {
+					DEFAULT: 'hsl(var(--coral-card))',
+					bg: 'hsl(var(--coral-bg))',
+					light: 'hsl(var(--coral-light))'
+				},
+				yellow: {
+					accent: 'hsl(var(--yellow-accent))'
+				},
+				gray: {
+					text: 'hsl(var(--gray-text))'
+				},
+				success: 'hsl(var(--success))',
+				warning: 'hsl(var(--warning))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
