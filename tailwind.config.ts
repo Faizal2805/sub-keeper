@@ -52,16 +52,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				coral: {
-					DEFAULT: 'hsl(var(--coral-card))',
-					bg: 'hsl(var(--coral-bg))',
-					light: 'hsl(var(--coral-light))'
+				premium: {
+					DEFAULT: 'hsl(var(--premium-surface))',
+					bg: 'var(--premium-bg)',
+					elevated: 'hsl(var(--premium-elevated))'
 				},
-				yellow: {
-					accent: 'hsl(var(--yellow-accent))'
+				gold: {
+					DEFAULT: 'hsl(var(--gold-accent))',
+					accent: 'hsl(var(--gold-accent))'
 				},
-				gray: {
-					text: 'hsl(var(--gray-text))'
+				blue: {
+					primary: 'hsl(var(--blue-primary))',
+					secondary: 'hsl(var(--blue-secondary))'
+				},
+				text: {
+					muted: 'hsl(var(--text-muted))'
 				},
 				success: 'hsl(var(--success))',
 				warning: 'hsl(var(--warning))',
@@ -79,7 +84,21 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				xl: '1rem',
+				'2xl': '1.5rem'
+			},
+			boxShadow: {
+				'premium': 'var(--shadow-premium)',
+				'elevated': 'var(--shadow-elevated)',
+				'glow': 'var(--shadow-glow)',
+				'gold': 'var(--shadow-gold)'
+			},
+			backgroundImage: {
+				'gradient-premium': 'var(--gradient-premium)',
+				'gradient-surface': 'var(--gradient-surface)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-blue': 'var(--gradient-blue)'
 			},
 			keyframes: {
 				'accordion-down': {
