@@ -149,6 +149,12 @@ export const Dashboard = () => {
     toast.success("Subscription deleted successfully!");
   };
 
+  const handleLogout = () => {
+    toast.success("Logged out successfully!");
+    // Reset the app state by reloading the page or triggering parent component state reset
+    window.location.reload();
+  };
+
   const getBadgeVariant = (status: string) => {
     return status === "Active" ? "default" : "secondary";
   };
@@ -158,24 +164,24 @@ export const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-premium-bg">
+    <div className="min-h-screen bg-clean-bg">
       {/* Header */}
-      <div className="bg-gradient-blue p-4 sm:p-6 text-white shadow-premium">
+      <div className="bg-white p-4 sm:p-6 shadow-clean border-b">{/* Remove text-white */}
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold">SubMaintaing</h1>
-            <p className="text-blue-secondary text-sm sm:text-base">Manage your subscriptions effortlessly</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">SubMaintaing</h1>
+            <p className="text-text-secondary text-sm sm:text-base">Manage your subscriptions effortlessly</p>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
             <div className="text-right hidden sm:block">
-              <p className="text-sm opacity-90">Welcome back,</p>
-              <p className="font-semibold">{user.name}</p>
+              <p className="text-sm text-text-secondary">Welcome back,</p>
+              <p className="font-semibold text-text-primary">{user.name}</p>
             </div>
             <Button 
               variant="outline" 
               size="sm"
               onClick={() => setShowSettings(true)}
-              className="border-white/20 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+              className="border-orange hover:bg-orange-light/10 hover:text-orange transition-colors"
             >
               <Settings className="h-4 w-4" />
               <span className="ml-2 sm:hidden">Settings</span>
@@ -183,7 +189,8 @@ export const Dashboard = () => {
             <Button 
               variant="outline" 
               size="sm"
-              className="border-white/20 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+              onClick={handleLogout}
+              className="border-orange text-orange hover:bg-orange hover:text-white transition-colors"
             >
               <LogOut className="h-4 w-4" />
               <span className="ml-2 sm:hidden">Logout</span>
@@ -195,31 +202,31 @@ export const Dashboard = () => {
       <div className="max-w-7xl mx-auto p-6">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-          <Card className="shadow-elevated bg-gradient-surface border-border/50 hover:shadow-glow transition-all duration-300">
+          <Card className="shadow-clean bg-white border hover:shadow-elevated transition-all duration-300">
             <CardHeader className="pb-3">
-              <CardTitle className="text-text-muted text-sm font-medium">Total Active Subscriptions</CardTitle>
+              <CardTitle className="text-text-secondary text-sm font-medium">Total Active Subscriptions</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-blue-primary">
+              <div className="text-2xl font-bold text-orange">
                 {subscriptions.filter(sub => sub.status === "Active").length}
               </div>
             </CardContent>
           </Card>
           
-          <Card className="shadow-elevated bg-gradient-surface border-border/50 hover:shadow-glow transition-all duration-300">
+          <Card className="shadow-clean bg-white border hover:shadow-elevated transition-all duration-300">
             <CardHeader className="pb-3">
-              <CardTitle className="text-text-muted text-sm font-medium">Monthly Spending</CardTitle>
+              <CardTitle className="text-text-secondary text-sm font-medium">Monthly Spending</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gold-accent">
+              <div className="text-2xl font-bold text-orange">
                 ${totalMonthlyAmount.toFixed(2)}
               </div>
             </CardContent>
           </Card>
           
-          <Card className="shadow-elevated bg-gradient-surface border-border/50 hover:shadow-glow transition-all duration-300 sm:col-span-2 lg:col-span-1">
+          <Card className="shadow-clean bg-white border hover:shadow-elevated transition-all duration-300 sm:col-span-2 lg:col-span-1">
             <CardHeader className="pb-3">
-              <CardTitle className="text-text-muted text-sm font-medium flex items-center gap-2">
+              <CardTitle className="text-text-secondary text-sm font-medium flex items-center gap-2">
                 <Bell className="h-4 w-4" />
                 Upcoming Renewals
               </CardTitle>
@@ -243,7 +250,7 @@ export const Dashboard = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted h-4 w-4" />
             <Input
               placeholder="Search subscriptions..."
-              className="pl-10 bg-premium-elevated border-border/50 focus:border-blue-primary transition-colors"
+              className="pl-10 bg-white border focus:border-orange transition-colors"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -258,8 +265,8 @@ export const Dashboard = () => {
                 onClick={() => setStatusFilter(status as any)}
                 className={`transition-all duration-300 ${
                   statusFilter === status 
-                    ? "bg-gradient-blue text-white shadow-glow" 
-                    : "hover:bg-premium-elevated"
+                    ? "bg-orange text-white shadow-orange" 
+                    : "hover:bg-clean-elevated border-orange text-orange hover:bg-orange/10"
                 }`}
               >
                 {status}
@@ -269,7 +276,7 @@ export const Dashboard = () => {
           
           <Button 
             onClick={() => setShowAddForm(true)}
-            className="whitespace-nowrap bg-gradient-gold text-premium shadow-gold hover:shadow-gold/70 transition-all duration-300"
+            className="whitespace-nowrap bg-orange text-white shadow-orange hover:bg-orange-dark transition-all duration-300"
           >
             <Plus className="h-4 w-4 mr-2" />
             Add Subscription
@@ -288,7 +295,7 @@ export const Dashboard = () => {
             return (
               <Card 
                 key={subscription.id} 
-                className={`shadow-elevated hover:shadow-glow transition-all duration-300 bg-gradient-surface border-border/50 ${
+                className={`shadow-clean hover:shadow-elevated transition-all duration-300 bg-white border ${
                   isExpiringSoon ? 'ring-2 ring-warning/50' : ''
                 }`}
               >
@@ -304,7 +311,7 @@ export const Dashboard = () => {
                           {subscription.status}
                         </Badge>
                         {subscription.category && (
-                          <span className="text-xs sm:text-sm text-text-muted bg-premium-elevated px-2 py-1 rounded-md">
+                          <span className="text-xs sm:text-sm text-text-secondary bg-clean-elevated px-2 py-1 rounded-md">
                             {subscription.category}
                           </span>
                         )}
@@ -314,8 +321,8 @@ export const Dashboard = () => {
                           </span>
                         )}
                       </div>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-text-muted">
-                        <span className="font-medium text-gold-accent text-base sm:text-lg">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-text-secondary">
+                        <span className="font-medium text-orange text-base sm:text-lg">
                           ${subscription.amount}/month
                         </span>
                         <span className="text-xs sm:text-sm">
@@ -329,7 +336,7 @@ export const Dashboard = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => setEditingSubscription(subscription)}
-                        className="hover:bg-blue-primary/10 hover:text-blue-primary transition-colors"
+                        className="hover:bg-orange/10 hover:text-orange border-orange text-orange transition-colors"
                       >
                         <Edit className="h-4 w-4" />
                         <span className="ml-2 sm:hidden">Edit</span>
@@ -351,9 +358,9 @@ export const Dashboard = () => {
           })}
           
           {filteredSubscriptions.length === 0 && (
-            <Card className="shadow-elevated bg-gradient-surface border-border/50">
+            <Card className="shadow-clean bg-white border">
               <CardContent className="p-8 sm:p-12 text-center">
-                <p className="text-text-muted">No subscriptions found matching your criteria.</p>
+                <p className="text-text-secondary">No subscriptions found matching your criteria.</p>
               </CardContent>
             </Card>
           )}

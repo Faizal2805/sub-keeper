@@ -58,19 +58,19 @@ export const AuthForm = ({ onLogin }: AuthFormProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-coral-bg flex items-center justify-center p-4">
+    <div className="min-h-screen bg-clean-bg flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo/Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-coral rounded-2xl mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange rounded-2xl mb-4">
             <CreditCard className="h-8 w-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-coral mb-2">SubKeeper</h1>
-          <p className="text-gray-text">Manage your subscriptions effortlessly</p>
+          <h1 className="text-3xl font-bold text-orange mb-2">SubMaintaing</h1>
+          <p className="text-text-secondary">Manage your subscriptions effortlessly</p>
         </div>
 
-        <Card className="shadow-coral">
-          <CardHeader className="bg-coral text-white rounded-t-lg">
+        <Card className="shadow-clean">
+          <CardHeader className="bg-orange text-white rounded-t-lg">
             <CardTitle className="text-center">Welcome</CardTitle>
           </CardHeader>
           
@@ -124,7 +124,7 @@ export const AuthForm = ({ onLogin }: AuthFormProps) => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-coral hover:bg-coral/90 text-white"
+                    className="w-full bg-orange hover:bg-orange-dark text-white"
                     disabled={isLoading}
                   >
                     {isLoading ? "Signing in..." : "Sign In"}
@@ -198,7 +198,7 @@ export const AuthForm = ({ onLogin }: AuthFormProps) => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-coral hover:bg-coral/90 text-white"
+                    className="w-full bg-orange hover:bg-orange-dark text-white"
                     disabled={isLoading}
                   >
                     {isLoading ? "Creating account..." : "Create Account"}
@@ -210,9 +210,9 @@ export const AuthForm = ({ onLogin }: AuthFormProps) => {
         </Card>
 
         {/* Demo Credentials */}
-        <div className="mt-6 p-4 bg-white rounded-lg shadow-soft">
-          <p className="text-sm text-gray-text text-center mb-2">Demo Credentials</p>
-          <p className="text-xs text-gray-text text-center">
+        <div className="mt-6 p-4 bg-white rounded-lg shadow-clean">
+          <p className="text-sm text-text-secondary text-center mb-2">Demo Credentials</p>
+          <p className="text-xs text-text-secondary text-center">
             Email: demo@example.com | Password: demo123
           </p>
         </div>

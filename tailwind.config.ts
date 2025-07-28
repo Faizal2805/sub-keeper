@@ -52,20 +52,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				premium: {
-					DEFAULT: 'hsl(var(--premium-surface))',
-					bg: 'var(--premium-bg)',
-					elevated: 'hsl(var(--premium-elevated))'
+				clean: {
+					DEFAULT: 'hsl(var(--clean-surface))',
+					bg: 'hsl(var(--clean-bg))',
+					elevated: 'hsl(var(--clean-elevated))'
 				},
-				gold: {
-					DEFAULT: 'hsl(var(--gold-accent))',
-					accent: 'hsl(var(--gold-accent))'
-				},
-				blue: {
-					primary: 'hsl(var(--blue-primary))',
-					secondary: 'hsl(var(--blue-secondary))'
+				orange: {
+					DEFAULT: 'hsl(var(--orange-primary))',
+					light: 'hsl(var(--orange-light))',
+					dark: 'hsl(var(--orange-dark))',
+					primary: 'hsl(var(--orange-primary))'
 				},
 				text: {
+					primary: 'hsl(var(--text-primary))',
+					secondary: 'hsl(var(--text-secondary))',
 					muted: 'hsl(var(--text-muted))'
 				},
 				success: 'hsl(var(--success))',
@@ -89,16 +89,14 @@ export default {
 				'2xl': '1.5rem'
 			},
 			boxShadow: {
-				'premium': 'var(--shadow-premium)',
+				'clean': 'var(--shadow-clean)',
 				'elevated': 'var(--shadow-elevated)',
-				'glow': 'var(--shadow-glow)',
-				'gold': 'var(--shadow-gold)'
+				'orange': 'var(--shadow-orange)'
 			},
 			backgroundImage: {
-				'gradient-premium': 'var(--gradient-premium)',
+				'gradient-clean': 'var(--gradient-clean)',
 				'gradient-surface': 'var(--gradient-surface)',
-				'gradient-gold': 'var(--gradient-gold)',
-				'gradient-blue': 'var(--gradient-blue)'
+				'gradient-orange': 'var(--gradient-orange)'
 			},
 			keyframes: {
 				'accordion-down': {
