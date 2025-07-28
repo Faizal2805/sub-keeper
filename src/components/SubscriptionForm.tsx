@@ -74,7 +74,7 @@ export const SubscriptionForm = ({ subscription, onSubmit, onCancel }: Subscript
             </div>
 
             <div>
-              <Label htmlFor="amount">Monthly Amount ($)</Label>
+              <Label htmlFor="amount">Monthly Amount (₹)</Label>
               <Input
                 id="amount"
                 type="number"

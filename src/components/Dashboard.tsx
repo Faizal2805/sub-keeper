@@ -105,7 +105,7 @@ export const Dashboard = () => {
 
       if (expiringToday.length > 0) {
         expiringToday.forEach(sub => {
-          toast.error(`${sub.serviceName} expires today! Renewing soon: $${sub.amount}`, {
+          toast.error(`${sub.serviceName} expires today! Renewing soon: ₹${sub.amount}`, {
             duration: 10000,
           });
         });
@@ -113,7 +113,7 @@ export const Dashboard = () => {
 
       if (expiringSoon.length > 0) {
         expiringSoon.forEach(sub => {
-          toast.warning(`${sub.serviceName} expires in 3 days - $${sub.amount}`, {
+          toast.warning(`${sub.serviceName} expires in 3 days - ₹${sub.amount}`, {
             duration: 8000,
           });
         });
@@ -127,10 +127,10 @@ export const Dashboard = () => {
   }, [subscriptions]);
 
   const handleAddSubscription = (subscription: Omit<Subscription, "id">) => {
-    const newSubscription = {
-      ...subscription,
-      id: Date.now().toString()
-    };
+      const newSubscription = {
+        ...subscription,
+        id: Date.now().toString()
+      };
     setSubscriptions([...subscriptions, newSubscription]);
     setShowAddForm(false);
     toast.success("Subscription added successfully!");
@@ -219,7 +219,7 @@ export const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-orange">
-                ${totalMonthlyAmount.toFixed(2)}
+                ₹{totalMonthlyAmount.toFixed(2)}
               </div>
             </CardContent>
           </Card>
@@ -323,7 +323,7 @@ export const Dashboard = () => {
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-text-secondary">
                         <span className="font-medium text-orange text-base sm:text-lg">
-                          ${subscription.amount}/month
+                          ₹{subscription.amount}/month
                         </span>
                         <span className="text-xs sm:text-sm">
                           Next billing: {new Date(subscription.billingDate).toLocaleDateString()}
